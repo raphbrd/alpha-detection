@@ -1,7 +1,12 @@
-# Individual alpha peak detection
+# Individual alpha peak detection in EEG data
 
-**Authors:** Raphael Bordas <bordasraph@gmail.com>, Virginie van Wassenhove <virginie.van.wassenhove@gmail.com>
-**Associated publication:** Bordas & van Wassenhove (in press) Spontaneous Oscillatory Activity in Episodic Timing: An EEG Replication Study and Its Limitations. eNeuro
+**Authors:** 
+- Raphael Bordas <bordasraph@gmail.com>
+- Virginie van Wassenhove <virginie.van.wassenhove@gmail.com>
+
+**Associated publication**
+
+Bordas & van Wassenhove (in press) Spontaneous Oscillatory Activity in Episodic Timing: An EEG Replication Study and Its Limitations. eNeuro
 
 A typical spectrum in M/EEG data presents a peak between 8 and 12 Hz (alpha frequency band) of particularly high power. 
 This repository provides tools to detect and parameterize this peak by separating periodic and aperiodic components.
@@ -44,7 +49,7 @@ Script to use: `scripts/iapf_detection_cli.py`.
 
 Donoghue T, Haller M, Peterson EJ, Varma P, Sebastian P, Gao R, Noto T, Lara AH, Wallis JD,
 Knight RT, Shestyuk A, & Voytek B (2020). Parameterizing neural power spectra into periodic
-and aperiodic components. Nature Neuroscience, 23, 1655-1665. DOI: 10.1038/s41593-020-00744-x 
+and aperiodic components. Nature Neuroscience, 23, 1655-1665. DOI: [10.1038/s41593-020-00744-x](https://doi.org/10.1038/s41593-020-00744-x)
 
 Wen, H., & Liu, Z. (2016). Separating fractal and oscillatory components in the power spectrum of neurophysiological 
-signal. Brain topography, 29(1), 13-26. DOI: 10.1007/s10548-015-0448-0
+signal. Brain topography, 29(1), 13-26. DOI: [10.1007/s10548-015-0448-0](https://doi.org/10.1007/s10548-015-0448-0)
