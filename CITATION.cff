@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Bordas"
+    given-names: "Raphael"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "van Wassenhove"
+    given-names: "Virginie"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "alpha-detection: A Python pipeline for FOOOF and IRASA"
+version: 0.1.0
+doi: 
+date-released: 2026-01-14
+url: "https://github.com/raphbrd/alpha-detection"

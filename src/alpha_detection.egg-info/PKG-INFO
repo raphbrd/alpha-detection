@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: alpha-detection
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy==1.15.3
+Requires-Dist: mne==1.10.2
+Requires-Dist: fooof==1.1.1
+Requires-Dist: joblib
