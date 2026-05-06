@@ -6,3 +6,6 @@ uv.lock
 *.egg-info/
 .vscode/
 .idea/
+_*
+*/_*
+*/*/_*
