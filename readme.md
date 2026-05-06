@@ -6,7 +6,7 @@
 
 **Associated publication**
 
-Bordas & van Wassenhove (in press) Spontaneous Oscillatory Activity in Episodic Timing: An EEG Replication Study and Its Limitations. eNeuro
+Bordas & van Wassenhove (2026) Spontaneous Oscillatory Activity in Episodic Timing: An EEG Replication Study and Its Limitations. eNeuro
 
 A typical spectrum in M/EEG data presents a peak between 8 and 12 Hz (alpha frequency band) of particularly high power. 
 This repository provides tools to detect and parameterize this peak by separating periodic and aperiodic components.
@@ -26,11 +26,15 @@ source .venv/bin/activate #
 3. Install the python package as an editable
 ```{bash}
 # From the root directory of this repo
-pip install -e .
+uv pip install -e .
 ```
 
-Warning: it is important to install this repo as an editable (flag -e), as you will most likely edit the config file.
+Notes
+> It is important to install this repo in editable mode (flag -e when using pip), as you will most likely edit 
+the config file.
 
+> This script is using the old version of the `fooof` package, which is now named 'specparam'. Note that both packages
+> are identical in terms of functionality and algorithms (as of now).
 ## Usage
 
 In the following code, we provide a Python implementation of both methods, along with
@@ -38,7 +42,8 @@ example scripts of how to run the code with an example dataset.
 
 ### Standalone script for fast iAPF detection
 
-Script to use: `scripts/iapf_detection_cli.py`.
+Script to use: `scripts/iapf_detection_cli.py`. This script computes the individual alpha peak frequency from raw
+data. Its purpose is to be used as a standalone script, e.g., for tACS stimulation frequency choice.
 
 ### Pipelines
 
