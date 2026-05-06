@@ -105,7 +105,7 @@ class PeakDetector:
 
         return results
 
-    def report(self):
+    def report(self, fg_indexes_to_report=None):
         report = mne.Report("Spectral analysis of EEG signals", verbose=False)
 
         if not os.path.exists(os.path.join(self.fooof_path, "figures")):
@@ -116,13 +116,19 @@ class PeakDetector:
             fg.load(file_name=f"{s}_{r}_fg_all_sens_{self.epo_start}_to_{self.epo_end}",
                     file_path=os.path.join(self.fooof_path, s))
 
+            if fg_indexes_to_report is None:
+                fg_indexes_to_report = list(range(len(fg)))
+
+            # figure has only 24 axes
+            fg_indexes_to_report = fg_indexes_to_report[:24]
+
             fig, axes = plt.subplots(8, 4, sharex=True, sharey=True, figsize=(12, 12))
             axes = axes.flatten()
-            for i in range(len(fg)):
+            for i in range(len(fg_indexes_to_report)):
                 axes[i].axvspan(3, 7, facecolor="green", alpha=.2, edgecolor="none")
                 axes[i].axvspan(8, 12, facecolor="red", alpha=.2, edgecolor="none")
                 axes[i].axvspan(14, 30, facecolor="blue", alpha=.2, edgecolor="none")
-                fm = fg.get_fooof(i)
+                fm = fg.get_fooof(fg_indexes_to_report[i])
                 color = "C0" if fm.r_squared_ > 0.95 else "red"
                 # axes[i].plot(fm.freqs, fm.fooofed_spectrum_, color=color)
                 axes[i].plot(fm.freqs, fm._peak_fit, color=color)
@@ -154,7 +160,7 @@ class PeakDetector:
                 else:
                     axes[i].set_xticks([10, 30])
                 # axes[i].set_yticks([0, 0.5, 1])
-            for i in range(len(fg), len(axes)):
+            for i in range(len(fg_indexes_to_report), len(axes)):
                 axes[i].set_axis_off()
             fig.supxlabel("Frequency (Hz)", fontsize=14)
             fig.supylabel("Power (a.u.)", fontsize=14)
@@ -166,11 +172,11 @@ class PeakDetector:
 
             fig, axes = plt.subplots(8, 4, sharex=True, sharey=True, figsize=(12, 12))
             axes = axes.flatten()
-            for i in range(len(fg)):
+            for i in range(len(fg_indexes_to_report)):
                 axes[i].axvspan(3, 7, facecolor="green", alpha=.2, edgecolor="none")
                 axes[i].axvspan(8, 12, facecolor="red", alpha=.2, edgecolor="none")
                 axes[i].axvspan(14, 30, facecolor="blue", alpha=.2, edgecolor="none")
-                fm = fg.get_fooof(i)
+                fm = fg.get_fooof(fg_indexes_to_report[i])
                 color = "C0" if fm.r_squared_ > 0.95 else "red"
                 axes[i].plot(fm.freqs, fm.fooofed_spectrum_, color=color)
                 peak_params = fm.get_params("peak_params")
@@ -204,7 +210,7 @@ class PeakDetector:
                 else:
                     axes[i].set_xticks([10, 30])
                 # axes[i].set_yticks([0, 0.5, 1])
-            for i in range(len(fg), len(axes)):
+            for i in range(len(fg_indexes_to_report), len(axes)):
                 axes[i].set_axis_off()
             fig.supxlabel("Frequency (Hz)", fontsize=14)
             fig.supylabel("Power (a.u.)", fontsize=14)
